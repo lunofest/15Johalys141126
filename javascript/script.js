@@ -120,31 +120,25 @@ setInterval(updateTimer, 1000);
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  var swiper = new Swiper(".mySwiper", {
-    effect: "cards",
-    grabCursor: true,
+  var video = document.getElementById("videoFotos");
+  var playButton = document.getElementById("videoFotosPlay");
+
+  if (!video || !playButton) return;
+
+  playButton.addEventListener("click", function () {
+    video.controls = true;
+    playButton.classList.add("oculto");
+    video.play();
   });
 
-  // Inicializar Fancybox
-  $(".fancybox").fancybox({
-    buttons: [
-      "zoom",
-      "slideShow",
-      "fullScreen",
-      "thumbs",
-      "close"
-    ],
-    loop: true,
-    infobar: true,
-    arrows: true,
-    protect: true,
-    animationEffect: "fade",
-    transitionEffect: "slide",
-    transitionDuration: 500,
-    touch: {
-      vertical: false,
-    },
-    autoFocus: false,
+  video.addEventListener("play", function () {
+    playButton.classList.add("oculto");
+  });
+
+  // Al terminar, vuelve a mostrarse el botón para reproducirlo de nuevo
+  video.addEventListener("ended", function () {
+    video.controls = false;
+    playButton.classList.remove("oculto");
   });
 });
 

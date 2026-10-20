@@ -29,7 +29,7 @@
 
     /* ---------- color titulo musica ----------- */
 
-    --color-titulo-music: #dd8fb9;
+    --color-titulo-music: #cb0909;
 
     /* ---------- color menu hamburguesa ----------- */
 
@@ -38,34 +38,34 @@
     /* ------ Colores nav ----------- */
 
     --color-nav: #ffebf6;
-    --color-font-nav: #dd8fb9;
+    --color-font-nav: #cb0909;
 
 
     /* ------ colores textos ----------- */
-    --color-titles: #82516c;
-    --color-subtitles: #82516c;
-    --color-parrafos: #82516c;
-    --color-fuente-botones: #fff;
+    --color-titles: #edd9a1;
+    --color-subtitles: #edd9a1;
+    --color-parrafos: #edd9a1;
+    --color-fuente-botones: #bb0c0c;
 
 
     /* ------ colores temporizador ----------- */
-    --color-numeros-temporizador: #dd8fb9;
-    --color-bordes-temporizador: #dd8fb9;
+    --color-numeros-temporizador: #bb0c0c;
+    --color-bordes-temporizador: #bb0c0c;
 
 
     /* ------ colores titulo fotos ----------- */
-    --color--titulos-fotos: #dd8fb9;
-    --color--subtitulos-fotos: #dd8fb9;
+    --color--titulos-fotos: #bb0c0c;
+    --color--subtitulos-fotos: #bb0c0c;
 
 
     /* ------ itinerario ----------- */
-    --color-fondo-tituloPrincipal: #dd8fb9;
+    --color-fondo-tituloPrincipal: #bb0c0c;
     --color-tituloPrincipal: #fff;
-    --fondo-itinerario: #ffc1f7;
-    --titulo-itinerario: #82516c;
-    --hora-itinerario: #82516c;
-    --fondo-barra-progreso: #fd91ef;
-    --avance-barra-progreso: #82516c;
+    --fondo-itinerario: #edd9a1;
+    --titulo-itinerario: #bb0c0c;
+    --hora-itinerario: #bb0c0c;
+    --fondo-barra-progreso: #edd9a1;
+    --avance-barra-progreso: #bb0c0c;
 
 
 
@@ -78,23 +78,23 @@
     --color-font-bancarios: #ffffff;
 
     /* ------ colores radio Confimacion ----------- */
-    --color-inputRadio-confirmacion: #dd8fb9;
+    --color-inputRadio-confirmacion: #edd9a1;
 
     /* ------ Color footer frase ----------- */
     --color-frase-final: #fff;
 
     /* ------ colores pie de pagina ----------- */
-    --color-footer: #f19bd7;
+    --color-footer: #c8b273;
     --color-info: #b3348d;
     --color-letra-web: #ffbaee;
 
 
 
     /* ------ colores botones y divs ----------- */
-    --color-botones: linear-gradient(to bottom, rgba(247, 113, 194, 1) 0%, rgba(251, 166, 225, 1) 50%, rgba(253, 137, 215, 1) 51%, rgba(227, 70, 185, 1) 100%);
+    --color-botones: linear-gradient(180deg,rgba(237, 217, 161, 1) 0%, rgba(240, 210, 129, 1) 21%, rgba(212, 177, 80, 1) 50%, rgba(240, 210, 129, 1) 82%, rgba(237, 217, 161, 1) 100%);
 
 
-    --color-divs: linear-gradient(90deg, rgba(255, 162, 226, 0.59) 0%, rgba(255, 162, 226, 0.533) 1%, rgba(255, 221, 244, 0.837) 4%, rgba(255, 162, 226, 0.604) 17%, rgba(255, 162, 226, 0.741) 34%, rgb(255, 229, 245) 50%, rgba(255, 162, 226, 0.576) 64%, rgba(255, 162, 226, 0.576) 84%, rgba(255, 221, 244, 0.789) 95%, rgba(255, 162, 226, 0.583) 99%, rgba(255, 162, 226, 0.509) 100%);
+    --color-divs: linear-gradient(90deg,rgba(203, 9, 9, 0.8) 0%, rgba(255, 189, 189, 0.8) 5%, rgba(203, 9, 9, 0.8) 9%, rgba(240, 67, 67, 0.8) 50%, rgba(203, 9, 9, 0.8) 90%, rgba(255, 201, 201, 0.8) 95%, rgba(203, 9, 9, 0.8) 100%);
 
 }
 
@@ -575,10 +575,74 @@ header {
 /* //////////////////////////SESION DE FOTOS/////////////////////////////////// */
 
 
-.swiper {
-    width: 310px;
-    height: 390px;
+.videofotos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 8em;
+}
+
+.videofotos__container {
+    position: relative;
+    width: clamp(260px, 80%, 340px);
+    aspect-ratio: 478 / 850;
+    max-height: 640px;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+.videofotos__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.videofotos__play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, .25);
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.videofotos__play::before {
+    content: "";
+    position: absolute;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .25);
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .25);
+    transition: transform .3s ease;
+}
+
+.videofotos__play:hover::before {
+    transform: scale(1.08);
+}
+
+.videofotos__play.oculto {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.videofotos__icon {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    margin-left: 5px;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, .5));
 }
 
 .title--fotos {
@@ -1049,7 +1113,7 @@ header {
     cursor: pointer;
 }
 
-/* ////////////////////////////  REGALOS  //////////////////////////////////// */
+/* ////////////////////////////   REGALOS  //////////////////////////////////// */
 
 
 .regalos {
@@ -1059,7 +1123,7 @@ header {
 
 .regalos__title {
     font-family: var(--font-rancho);
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--color-titles);
     margin: 0;
 }
